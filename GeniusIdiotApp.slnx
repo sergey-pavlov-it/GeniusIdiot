@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="coding_tasks/GeniusIdiotConsoleApp.csproj" />
+  <Project Path="GeniusIdiotConsoleApp/GeniusIdiotConsoleApp.csproj" />
   <Project Path="GeniusIdiotFormApp/GeniusIdiotFormApp.csproj" Id="975015fb-d375-4b60-815a-6bab072993b1" />
   <Project Path="GeniusIdiot_ClassLibrary/GeniusIdiotClassLibrary.csproj" Id="2edf95a3-0834-4cbe-855a-a59b92c951c5" />
 </Solution>
