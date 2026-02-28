@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
-using GeniusIdiotClassLibrary;
-using GeniusIdiotConsoleApp.Application;
-using GeniusIdiotConsoleApp.Domain;
-using GeniusIdiotConsoleApp.Infrastructure;
-
-
+﻿using GeniusIdiot.Application;
+using GeniusIdiot.Domain;
+using GeniusIdiot.Infrastructure;
 
 namespace GeniusIdiotFormApp
 {
@@ -79,6 +68,24 @@ namespace GeniusIdiotFormApp
             return form.ShowDialog() == DialogResult.OK
                 ? textBox.Text.Trim()
                 : null;
+        }
+
+        private void ListUsersButton_Click(object sender, EventArgs e)
+        {
+            var arrayUserResult = resultRepo.GetArrayResult()
+                .TakeLast(10)
+                .Select(raw =>
+                {
+                    var parts = raw.Split(';');
+
+                    var name = parts[0].Trim();
+                    var score = parts[1].Trim();
+                    var diagnos = parts[2].Trim();
+
+                    return $"{name}: {score} - {diagnos}";
+                });
+            
+            MessageBox.Show(this, string.Join(Environment.NewLine, arrayUserResult), "Последние 10 результатов", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

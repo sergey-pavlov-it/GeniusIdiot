@@ -1,4 +1,4 @@
-﻿namespace GeniusIdiotConsoleApp.Application
+﻿namespace GeniusIdiot.Application
 {
     public class DiagnosisCalculator
     {

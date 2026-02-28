@@ -8,16 +8,6 @@
             return userInput;
         }
 
-        public static string ReadNonEmptyLine(string prompt)
-        {
-
-        }
-
-        public static int ReadPositiveInt(string prompt)
-        {
-
-        }
-
         public static bool ReadYesNo(string prompt)
         {
             Console.WriteLine(prompt);

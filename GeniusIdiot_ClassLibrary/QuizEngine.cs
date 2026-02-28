@@ -1,11 +1,6 @@
-﻿using GeniusIdiotConsoleApp.Domain;
-using GeniusIdiotConsoleApp.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
+﻿using GeniusIdiot.Domain;
 
-namespace GeniusIdiotConsoleApp.Application
+namespace GeniusIdiot.Application
 {
     public class QuizEngine
     {

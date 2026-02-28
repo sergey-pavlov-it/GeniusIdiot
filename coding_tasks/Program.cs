@@ -1,8 +1,8 @@
-﻿using GeniusIdiotConsoleApp.Application;
-using GeniusIdiotConsoleApp.Infrastructure;
+﻿using GeniusIdiot.Application;
+using GeniusIdiot.Infrastructure;
 using GeniusIdiotConsoleApp.UI;
 
-namespace GeniusIdiotConsoleApp
+namespace GeniusIdiot
 {
     public class Program
     {

@@ -1,7 +1,7 @@
-﻿using GeniusIdiotConsoleApp.Application;
-using GeniusIdiotConsoleApp.Domain;
-using GeniusIdiotConsoleApp.Infrastructure;
-using GeniusIdiotConsoleApp.Validation;
+﻿using GeniusIdiot.Application;
+using GeniusIdiot.Domain;
+using GeniusIdiot.Infrastructure;
+using GeniusIdiot.Validation;
 
 namespace GeniusIdiotConsoleApp.UI
 {
@@ -57,7 +57,7 @@ namespace GeniusIdiotConsoleApp.UI
         public void RunQuizScenario()
         {
             Console.WriteLine("Здравствуйте! Как к Вам обращаться?"); // знакомство
-            User currentUser = new User((Console.ReadLine() ?? "").Trim());
+            User currentUser = new User(ConsoleInput.ReadTrimmedLine());
             Console.WriteLine($"Очень приятно, {currentUser.Name}. Начнем тест:");
 
             bool doTest = true;
@@ -73,26 +73,8 @@ namespace GeniusIdiotConsoleApp.UI
 
                 _resultRepo.SaveResult(currentUser.Name, correctAnswers, userDiagnosis); // сохранили результат
 
-                Console.WriteLine("Хотите пройти тест ещё раз? (Да/Нет)"); // повтор теста
-                while (true)
-                {
-                    string answer = (Console.ReadLine() ?? "").Trim().ToLowerInvariant();
-
-                    if (answer == "да")
-                    {
-                        Console.WriteLine("Отлично, перейдем к вопросам");
-                        break; // выходим из цикла ввода, doTest остаётся true
-                    }
-
-                    if (answer == "нет")
-                    {
-                        doTest = false;
-                        Console.WriteLine($"Всего хорошего, {currentUser.Name}");
-                        break;
-                    }
-
-                    Console.WriteLine("Не понял ответа, повторите (да/нет)");
-                }
+                bool repeatTest = ConsoleInput.ReadYesNo("Хотите пройти тест ещё раз? (Да/Нет)"); // повтор теста
+                doTest = repeatTest;
             }
         }
 
@@ -153,7 +135,21 @@ namespace GeniusIdiotConsoleApp.UI
 
         public void ShowResultsScenario()
         {
-            _resultRepo.ShowResult();
+            Console.Clear();
+            string[] arrayUserResult = _resultRepo.GetArrayResult();
+            arrayUserResult = arrayUserResult.TakeLast(10).ToArray();
+
+            foreach (var raw in arrayUserResult)
+            {
+                var parts = raw.Split(';');
+
+                var name = parts[0].Trim();
+                var scoreText = parts[1].Trim();
+                var diagnos = parts[2].Trim();
+
+                Console.WriteLine($"{name}: {scoreText} - {diagnos}");
+            }
+            Console.WriteLine();
         }
     }
 }

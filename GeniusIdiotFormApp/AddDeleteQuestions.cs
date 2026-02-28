@@ -1,12 +1,6 @@
-﻿using GeniusIdiotConsoleApp;
-using GeniusIdiotConsoleApp.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using GeniusIdiot.Infrastructure;
+using GeniusIdiot.Application;
+using GeniusIdiot.Validation;
 
 namespace GeniusIdiotFormApp
 {
@@ -24,6 +18,11 @@ namespace GeniusIdiotFormApp
             _diagnoseCalculator = diagnoseResult;
         }
 
+        private void AddDeleteQuestions_Load(object sender, EventArgs e)
+        {
+            RefreshQuestionsList();
+        }
+
         private void listBoxQuestions_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -36,9 +35,27 @@ namespace GeniusIdiotFormApp
                 listBoxQuestions.Items.Add(q);
         }
 
-        private void AddDeleteQuestions_Load(object sender, EventArgs e)
+        private void DeleteQuestionButton_Click(object sender, EventArgs e)
         {
+            int indexDelete = listBoxQuestions.SelectedIndex + 1;
+            bool deleteQuuestion = _questionsRepo.DeleteQuestion(indexDelete, out string error);
             RefreshQuestionsList();
+        }
+
+        private void AddQuestionButton_Click(object sender, EventArgs e)
+        {
+            bool addQuestion = QuestionValidation.TryParseNewQuestion(QuestionTextBox.Text, AnswerTextBox.Text, out string validText, out int validAnswer, out string error);
+            if (addQuestion)
+            {
+                _questionsRepo.AddQuestion(validText, validAnswer);
+                RefreshQuestionsList();
+                QuestionTextBox.Text = "";
+                AnswerTextBox.Text = "";
+            }
+            else
+            {
+                MessageBox.Show(this, error);
+            }
         }
     }
 }

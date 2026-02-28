@@ -1,10 +1,6 @@
-﻿using GeniusIdiotConsoleApp.Domain;
-using System;
-using System.Collections.Generic;
-using System.Reflection.PortableExecutable;
-using System.Text;
+﻿using System.Text;
 
-namespace GeniusIdiotConsoleApp.Infrastructure
+namespace GeniusIdiot.Infrastructure
 {
     public class FileService
     {

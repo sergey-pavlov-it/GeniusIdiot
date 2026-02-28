@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GeniusIdiotConsoleApp.Validation
+﻿namespace GeniusIdiot.Validation
 {
     public static class InputValidation
     {

@@ -1,8 +1,6 @@
-﻿using GeniusIdiotConsoleApp;
-using GeniusIdiotConsoleApp.Application;
-using GeniusIdiotConsoleApp.Domain;
-using GeniusIdiotConsoleApp.Infrastructure;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+﻿using GeniusIdiot.Application;
+using GeniusIdiot.Domain;
+using GeniusIdiot.Infrastructure;
 
 namespace GeniusIdiotFormApp
 {

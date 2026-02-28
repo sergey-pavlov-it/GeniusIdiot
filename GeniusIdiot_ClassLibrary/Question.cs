@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using GeniusIdiotConsoleApp.Infrastructure;
-
-namespace GeniusIdiotConsoleApp.Domain
+﻿namespace GeniusIdiot.Domain
 {
     public class Question
     {

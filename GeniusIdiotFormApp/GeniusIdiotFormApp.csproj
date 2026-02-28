@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\coding_tasks\GeniusIdiotConsoleApp.csproj" />
+    <ProjectReference Include="..\GeniusIdiot_ClassLibrary\GeniusIdiotClassLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>

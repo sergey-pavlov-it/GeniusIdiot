@@ -1,6 +1,6 @@
-﻿using GeniusIdiotConsoleApp.Domain;
+﻿using GeniusIdiot.Domain;
 
-namespace GeniusIdiotConsoleApp.Infrastructure
+namespace GeniusIdiot.Infrastructure
 {
     public class QuestionsRepository
     {

@@ -71,6 +71,7 @@
             ListUsersButton.TabIndex = 2;
             ListUsersButton.Text = "Результаты участников";
             ListUsersButton.UseVisualStyleBackColor = false;
+            ListUsersButton.Click += ListUsersButton_Click;
             // 
             // AddRemoveButton
             // 
