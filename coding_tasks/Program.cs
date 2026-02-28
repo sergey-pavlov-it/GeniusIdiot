@@ -15,6 +15,7 @@ namespace GeniusIdiot
             ConsoleMenu сonsoleScenarios = new ConsoleMenu(questionsRepository, quizEngine, resultRepo, diagnoseCalculator); // для запуска сценариев
 
             сonsoleScenarios.Run();
+            Console.WriteLine("Проверка");
         }
     }
 }
