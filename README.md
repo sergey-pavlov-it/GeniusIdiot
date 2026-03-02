@@ -12,8 +12,11 @@
 - Программа анализирует количество правильных ответов и выводит соответствующий **диагноз**.
 - Реализовано в **двух вариантах**:
 
-  I) **Console** приложение  
-  II) **WinForms** приложение
+  I) **Console** приложение<br>
+  ![Console RunQuizScenario](assets/Console_RunQuizScenario.png)
+  
+  II) **WinForms** приложение<br>
+  ![WinForms RunQuizScenario](assets/WinForms_RunQuizScenario.png)  
 
 ---
 
