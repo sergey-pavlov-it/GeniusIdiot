@@ -19,6 +19,7 @@ namespace GeniusIdiot.Application
                 {
                     correctAnswers++;
                 }
+                Console.WriteLine();
             }
             return correctAnswers;
         }

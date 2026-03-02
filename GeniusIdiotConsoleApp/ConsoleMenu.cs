@@ -59,6 +59,7 @@ namespace GeniusIdiotConsoleApp.UI
             Console.WriteLine("Здравствуйте! Как к Вам обращаться?"); // знакомство
             User currentUser = new User(ConsoleInput.ReadTrimmedLine());
             Console.WriteLine($"Очень приятно, {currentUser.Name}. Начнем тест:");
+            Console.WriteLine();
 
             bool doTest = true;
             while (doTest)
