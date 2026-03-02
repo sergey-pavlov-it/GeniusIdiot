@@ -136,9 +136,15 @@ namespace GeniusIdiotConsoleApp.UI
 
         public void ShowResultsScenario()
         {
-            Console.Clear();
             string[] arrayUserResult = _resultRepo.GetArrayResult();
             arrayUserResult = arrayUserResult.TakeLast(10).ToArray();
+
+            if (arrayUserResult.Length == 0)
+            {
+                Console.WriteLine("Результатов нет.");
+                Console.WriteLine();
+                return;
+            }
 
             foreach (var raw in arrayUserResult)
             {

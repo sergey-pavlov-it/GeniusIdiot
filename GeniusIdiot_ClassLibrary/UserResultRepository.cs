@@ -12,6 +12,8 @@
 
             _path = Path.Combine(dir, "userResult.csv");
             _fileService = new FileService();
+
+            _fileService.EnsureFileExists(_path);
         }
 
         public void SaveResult(string userName, int correctAnswers, string userDiagnos)

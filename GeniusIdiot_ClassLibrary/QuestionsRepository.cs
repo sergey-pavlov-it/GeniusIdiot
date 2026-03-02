@@ -17,6 +17,7 @@ namespace GeniusIdiot.Infrastructure
             _fileService = new FileService();
             Questions = new List<Question>();
             _fileService.EnsureFileExists(_path);
+            SeedIfEmpty();
             LoadFromFile();
         }
 
@@ -68,6 +69,24 @@ namespace GeniusIdiot.Infrastructure
 
             _fileService.OverwriteFile(_path, lines);
             return true;
+        }
+
+        private void SeedIfEmpty()
+        {
+            var lines = _fileService.ReadLines(_path);
+            if (lines.Any(l => !string.IsNullOrWhiteSpace(l)))
+                return;
+
+            var defaultLines = new[]
+            {
+                "Бревно нужно распилить на 10 частей, сколько надо сделать распилов?;9",
+                "Укол делают каждые полчаса. Сколько нужно минут, чтобы сделать три укола?;60",
+                "Пять свечей горело, две потухли. Сколько свечей осталось?;2",
+                "На двух руках 10 пальцев. Сколько пальцев на 5 руках?;25",
+                "Сколько будет два плюс два умноженное на два?;6"
+            };
+            
+            _fileService.OverwriteFile(_path, defaultLines);
         }
     }
 }
