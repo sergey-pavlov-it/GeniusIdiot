@@ -55,3 +55,6 @@
 - создаётся файл `questions.csv`
 - создаётся файл `userResult`
 - затем вопросы загружаются из файла
+
+## 🧩 Архитектура
+![GeniusIdiot_Architecture](assets/GeniusIdiot_Architecture.png)
